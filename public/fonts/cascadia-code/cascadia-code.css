@@ -1,0 +1,19 @@
+/* cascadia-code */
+@font-face {
+	font-family: "Cascadia Code";
+	font-style: normal;
+	font-weight: 200 700;
+	font-stretch: 100%;
+	src: local("Cascadia Code Regular"), local("CascadiaCode-Regular"), url(cascadia-code.woff2) format("woff2");
+	font-display: swap;
+}
+/* cascadia-code-italic */
+@font-face {
+	font-family: "Cascadia Code";
+	font-style: italic;
+	font-weight: 200 700;
+	font-stretch: 100%;
+	src: local("Cascadia Code Italic"), local("CascadiaCode-Italic"), url(cascadia-code-italic.woff2) format("woff2");
+	font-display: swap;
+}
+

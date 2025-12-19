@@ -1,0 +1,4 @@
+* {
+  box-sizing: border-box;
+  line-height: calc(1em + 0.5rem);
+}
