@@ -23,7 +23,27 @@ import BaseLayout from "@/layouts/base-layout.astro";
       <button class="btn">cat config</button>
       <button class="btn">clear</button>
     </nav>
+
+    <div id="history"></div>
   </div>
+
+  <form class="command-input-area">
+    <label for="command-input" class="user">nyx</label>
+    <span style="color:var(--dim)">@</span>
+    <span class="host">nixos</span>
+    <span style="color:var(--dim)">:</span>
+    <span class="dir">~</span>
+    <span class="highlight">$</span>
+
+    <input
+      type="text"
+      id="command-input"
+      autocomplete="off"
+      spellcheck="false"
+      autofocus
+      aria-label="Terminal input"
+    />
+  </form>
 </BaseLayout>
 
 <style>
@@ -79,5 +99,51 @@ import BaseLayout from "@/layouts/base-layout.astro";
       color: var(--accent);
       transform: translateY(-1px);
     }
+  }
+
+  .command-input-area {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 15px 20px;
+    gap: 10px;
+
+    z-index: 10;
+  }
+
+  .user {
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .host {
+    color: var(--host-color);
+  }
+
+  .dir {
+    color: var(--dir-color);
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--fg);
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    flex-grow: 1;
+
+    width: 100%;
   }
 </style>
