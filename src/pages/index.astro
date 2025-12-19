@@ -5,13 +5,16 @@ import BaseLayout from "@/layouts/base-layout.astro";
 <BaseLayout title="nyx@nixos:~">
   <div id="terminal" role="log" aria-live="polite">
     <pre
-      class="ascii-art">
- _ __  _   _ __  __
+      class="ascii-art"> _ __  _   _ __  __
 | '_ \| | | |\ \/ /
 | | | | |_| | &gt;  &lt;
 |_| |_|\__, |/_/\_\
-       |___/
-    </pre>
+       |___/</pre>
+
+    <div>
+      Welcome back. All systems operational. Type 'help' to see available
+      commands.
+    </div>
   </div>
 </BaseLayout>
 
@@ -34,5 +37,6 @@ import BaseLayout from "@/layouts/base-layout.astro";
   .ascii-art {
     color: var(--accent);
     font-weight: bold;
+    margin-bottom: 2ch;
   }
 </style>
