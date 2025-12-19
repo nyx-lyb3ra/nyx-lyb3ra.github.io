@@ -3,11 +3,36 @@ import BaseLayout from "@/layouts/base-layout.astro";
 ---
 
 <BaseLayout title="nyx@nixos:~">
-  <h1>Hello, World!</h1>
+  <div id="terminal" role="log" aria-live="polite">
+    <pre
+      class="ascii-art">
+ _ __  _   _ __  __
+| '_ \| | | |\ \/ /
+| | | | |_| | &gt;  &lt;
+|_| |_|\__, |/_/\_\
+       |___/
+    </pre>
+  </div>
 </BaseLayout>
 
 <style>
-  h1 {
-    color: orange;
+  #terminal {
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--accent);
+    }
+  }
+
+  .ascii-art {
+    color: var(--accent);
+    font-weight: bold;
   }
 </style>
