@@ -15,18 +15,32 @@ import BaseLayout from "@/layouts/base-layout.astro";
       Welcome back. All systems operational. Type 'help' to see available
       commands.
     </div>
+
+    <nav class="nav-hints">
+      <button class="btn">whoami</button>
+      <button class="btn">ls stack</button>
+      <button class="btn">links</button>
+      <button class="btn">cat config</button>
+      <button class="btn">clear</button>
+    </nav>
   </div>
 </BaseLayout>
 
 <style>
   #terminal {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+
+    gap: 2ch;
+
     overflow-y: auto;
+
     scrollbar-width: thin;
     scrollbar-color: var(--accent) transparent;
 
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 0.25rem;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -37,6 +51,33 @@ import BaseLayout from "@/layouts/base-layout.astro";
   .ascii-art {
     color: var(--accent);
     font-weight: bold;
-    margin-bottom: 2ch;
+  }
+
+  .nav-hints {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1ch;
+  }
+
+  .btn {
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    color: var(--dim);
+
+    font-family: "Cascadia Code", monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
   }
 </style>
