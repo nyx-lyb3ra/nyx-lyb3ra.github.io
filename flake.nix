@@ -27,8 +27,10 @@
           in
           pkgs.mkShell {
             RUST_BACKTRACE = "1";
+            RUSTFLAGS = "--cfg erase_components";
 
             packages = with pkgs; [
+              leptosfmt
               rust-analyzer
               rustfmt
               rustToolchain
