@@ -1,19 +1,40 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
+
+    rust-overlay = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:oxalica/rust-overlay";
+    };
+  };
 
   outputs =
-    { nixpkgs, ... }:
+    { nixpkgs, rust-overlay, ... }:
     let
       inherit (nixpkgs) lib;
-
-      inherit (lib.attrsets) genAttrs;
-      inherit (lib.systems) flakeExposed;
-
-      eachSystem = f: genAttrs flakeExposed (system: f nixpkgs.legacyPackages.${system});
+      eachSystem = lib.genAttrs lib.systems.flakeExposed;
     in
     {
-      devShells = eachSystem (pkgs: {
-        default = pkgs.mkShell { packages = [ pkgs.bun ]; };
+      devShells = eachSystem (system: {
+        default =
+          let
+            overlays = [ (import rust-overlay) ];
+            pkgs = import nixpkgs { inherit system overlays; };
+
+            rustToolchain = pkgs.rust-bin.stable.latest.default.override {
+              targets = [ "wasm32-unknown-unknown" ];
+            };
+          in
+          pkgs.mkShell {
+            RUST_BACKTRACE = "1";
+
+            packages = with pkgs; [
+              rust-analyzer
+              rustfmt
+              rustToolchain
+              trunk
+            ];
+          };
       });
     };
 }
