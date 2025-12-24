@@ -2,18 +2,5 @@
   "[nix]": {
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "rust-analyzer.cargo.features": "all",
-  "rust-analyzer.procMacro.ignored": {
-    "leptos_macro": ["server"]
-  },
-  "rust-analyzer.rustfmt.overrideCommand": [
-    "leptosfmt",
-    "--stdin",
-    "--rustfmt"
-  ],
-  "rust-analyzer.server.path": "rust-analyzer"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
