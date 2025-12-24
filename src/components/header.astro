@@ -1,0 +1,98 @@
+---
+import NyxIcon from "@/icons/nyx.svg";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+];
+
+function isCurrent(href: string) {
+  return Astro.url.pathname === href;
+}
+---
+
+<header class="header">
+  <a class="logo-link" href="/">
+    <NyxIcon class="logo-link__logo" />
+    <span class="logo-link__text">[nyx]</span>
+  </a>
+
+  <nav class="navbar">
+    <ul class="navbar__list">
+      {
+        links.map(({ label, href }) => (
+          <li
+            class="navbar__item"
+            aria-current={isCurrent(href) ? "page" : "false"}
+          >
+            <a href={href}>{label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    display: none;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--spacing-md);
+
+    @media screen and (width >= 600px) {
+      display: flex;
+    }
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+
+    color: inherit;
+    text-decoration: none;
+
+    gap: var(--spacing-xs);
+  }
+
+  .logo-link__logo {
+    color: var(--accent-color);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .logo-link__text {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .navbar__list {
+    display: flex;
+    list-style-type: none;
+    gap: var(--spacing-xs);
+  }
+
+  .navbar__item {
+    color: oklch(from currentcolor l c h / 55%);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: currentcolor;
+    }
+
+    &[aria-current="page"] {
+      color: currentcolor;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+</style>
