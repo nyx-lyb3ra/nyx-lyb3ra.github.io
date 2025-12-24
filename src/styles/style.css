@@ -1,0 +1,28 @@
+* {
+  line-height: calc(1em + 0.5rem);
+
+  &,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  &:not(dialog) {
+    margin: 0;
+  }
+}
+
+:root {
+  background-color: oklch(0.98 0 0);
+  color: oklch(0 0 0 / 80%);
+  --accent-color: oklch(0.57 0.2 20);
+
+  font-family: "Inter Variable", sans-serif;
+  font-size: 11pt;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: oklch(0.2 0 0);
+    color: oklch(1 0 0);
+    --accent-color: oklch(0.63 0.2 20);
+  }
+}
