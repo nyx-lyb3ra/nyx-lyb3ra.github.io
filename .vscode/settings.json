@@ -1,4 +1,7 @@
 {
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   "[nix]": {
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
