@@ -1,5 +1,8 @@
 ---
-import "@/styles/style.css";
+import "@/styles/base.css";
+import "@/styles/colors.css";
+import "@/styles/curves.css";
+import "@/styles/spacing.css";
 
 interface Props {
   title: string;
@@ -8,8 +11,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="page" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
@@ -17,14 +20,37 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/fonts/cascadia-code/cascadia-code.css" type="text/css" />
-    <link rel="stylesheet" href="/fonts/inter-variable/inter-variable.css" type="text/css" />
-    <link rel="stylesheet" href="/fonts/shantell-sans/shantell-sans.css" type="text/css" />
+    <link rel="stylesheet" href="/fonts/cascadia-code/cascadia-code.css" />
+    <link rel="stylesheet" href="/fonts/inter-variable/inter-variable.css" />
+    <link rel="stylesheet" href="/fonts/shantell-sans/shantell-sans.css" />
 
     <title>{title}</title>
   </head>
 
-  <body>
+  <body class="page__body">
     <slot />
   </body>
 </html>
+
+<style>
+  .page {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+
+    font-family: "Inter Variable", sans-serif;
+    font-size: 1rem;
+
+    transition:
+      background-color 200ms var(--curve-fast-out-slow-in),
+      color 200ms var(--curve-fast-out-slow-in);
+  }
+
+  .page__body {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 100ch;
+
+    margin: 0 auto;
+  }
+</style>

@@ -1,0 +1,21 @@
+:root {
+  --color-surface: oklch(0.98 0 0);
+  --color-on-surface: oklch(0 0 0 / 80%);
+
+  --color-surface-low: oklch(0.96 0 0);
+  --color-surface-high: oklch(1 0 0);
+
+  --color-primary: oklch(0.56 0.2 20);
+  --color-on-primary: oklch(1 0 0);
+
+  @media screen and (prefers-color-scheme: dark) {
+    --color-surface: oklch(0.2 0 20);
+    --color-on-surface: oklch(1 0 0);
+
+    --color-surface-low: oklch(0.15 0 20);
+    --color-surface-high: oklch(0.25 0 20);
+
+    --color-primary: oklch(0.66 0.2 20);
+    --color-on-primary: oklch(1 0 0);
+  }
+}
