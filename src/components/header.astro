@@ -2,9 +2,9 @@
 import NyxIcon from "@/icons/nyx.svg";
 
 const links = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
+  { label: "home", href: "/" },
+  { label: "projects", href: "/projects" },
+  { label: "devlog", href: "/devlog" },
 ];
 
 const { pathname } = Astro.url;
@@ -53,15 +53,16 @@ function isCurrent(href: string) {
 
 <style>
   .header {
-    display: none;
+    display: flex;
 
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 
     padding: var(--spacing-md);
+    gap: var(--spacing-sm);
 
-    @media screen and (width >= 600px) {
-      display: flex;
+    @media (width >= 20.5rem) {
+      justify-content: space-between;
     }
   }
 
@@ -85,15 +86,34 @@ function isCurrent(href: string) {
   }
 
   .logo-link__text {
+    display: none;
     font-weight: 700;
     font-size: 1.25rem;
+
+    @media (width >= 20.5rem) {
+      display: block;
+    }
+  }
+
+  .navbar {
+    flex: 1;
+
+    @media (width >= 20.5rem) {
+      flex: 0;
+    }
   }
 
   .navbar__list {
     display: flex;
+    justify-content: space-evenly;
+
     list-style-type: none;
+
     padding: 0;
-    gap: var(--spacing-md);
+
+    @media (width >= 20.5rem) {
+      gap: var(--spacing-md);
+    }
   }
 
   .navbar__link {
