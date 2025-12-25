@@ -61,7 +61,7 @@ function isCurrent(href: string) {
     padding: var(--spacing-md);
     gap: var(--spacing-sm);
 
-    @media (width >= 20.5rem) {
+    @container (width >= 20.5rem) {
       justify-content: space-between;
     }
   }
@@ -90,7 +90,7 @@ function isCurrent(href: string) {
     font-weight: 700;
     font-size: 1.25rem;
 
-    @media (width >= 20.5rem) {
+    @container (width >= 20.5rem) {
       display: block;
     }
   }
@@ -98,7 +98,7 @@ function isCurrent(href: string) {
   .navbar {
     flex: 1;
 
-    @media (width >= 20.5rem) {
+    @container (width >= 20.5rem) {
       flex: 0;
     }
   }
@@ -111,7 +111,7 @@ function isCurrent(href: string) {
 
     padding: 0;
 
-    @media (width >= 20.5rem) {
+    @container (width >= 20.5rem) {
       gap: var(--spacing-md);
     }
   }
