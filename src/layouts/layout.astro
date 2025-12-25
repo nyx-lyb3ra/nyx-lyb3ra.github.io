@@ -5,10 +5,13 @@ import "@/styles/curves.css";
 import "@/styles/spacing.css";
 
 interface Props {
-  title: string;
+  titleSuffix?: string | null | undefined;
 }
 
-const { title } = Astro.props;
+const { titleSuffix } = Astro.props;
+
+const titlePrefix = "nyx";
+const title = titlePrefix + (titleSuffix ? ` :: ${titleSuffix}` : "");
 ---
 
 <!doctype html>
@@ -24,7 +27,7 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="/fonts/inter-variable/inter-variable.css" />
     <link rel="stylesheet" href="/fonts/shantell-sans/shantell-sans.css" />
 
-    <title>nyx :: {title}</title>
+    <title>{title}</title>
   </head>
 
   <body class="page__body">
