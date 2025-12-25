@@ -8,7 +8,7 @@
   --color-primary: oklch(0.56 0.2 20);
   --color-on-primary: oklch(1 0 0);
 
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     --color-surface: oklch(0.2 0 20);
     --color-on-surface: oklch(1 0 0);
 
