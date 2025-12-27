@@ -1,0 +1,49 @@
+---
+const date = new Date();
+---
+
+<footer class="footer">
+  <p class="footer__credits">
+    Website powered by <a
+      href="https://astro.build/"
+      class="footer__link"
+      target="_blank"
+      rel="noopener noreferrer">Astro</a
+    > • Hosted on <a
+      href="https://pages.github.com/"
+      class="footer__link"
+      target="_blank"
+      rel="noopener noreferrer">GitHub Pages</a
+    >
+  </p>
+
+  <p class="footer__copyright">
+    © {date.getFullYear()} Naiara Gomez Castro • 🄯 <a
+      href="https://anticapitalist.software/"
+      class="footer__link"
+      target="_blank"
+      rel="license noopener noreferrer">Anti-Capitalist Software License</a
+    >
+  </p>
+</footer>
+
+<style>
+  .footer {
+    color: oklch(from currentcolor l c h / 55%);
+
+    font-size: small;
+    text-align: center;
+
+    padding: var(--spacing-md);
+  }
+
+  .footer__link {
+    color: inherit;
+    font-weight: 700;
+    text-decoration-style: dotted;
+
+    &:hover {
+      text-decoration-style: solid;
+    }
+  }
+</style>
