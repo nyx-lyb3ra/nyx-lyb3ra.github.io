@@ -5,6 +5,7 @@ const links = [
   { label: "home", href: "/" },
   { label: "projects", href: "/projects" },
   { label: "devlog", href: "/devlog" },
+  { label: "links", href: "/links" },
 ];
 
 const { pathname } = Astro.url;
@@ -61,7 +62,7 @@ function isCurrent(href: string) {
     padding: var(--spacing-md);
     gap: var(--spacing-sm);
 
-    @container (width >= 20.5rem) {
+    @container (width >= 24rem) {
       justify-content: space-between;
     }
   }
@@ -90,7 +91,7 @@ function isCurrent(href: string) {
     font-weight: 700;
     font-size: 1.25rem;
 
-    @container (width >= 20.5rem) {
+    @container (width >= 24rem) {
       display: block;
     }
   }
@@ -98,7 +99,7 @@ function isCurrent(href: string) {
   .navbar {
     flex: 1;
 
-    @container (width >= 20.5rem) {
+    @container (width >= 24rem) {
       flex: 0;
     }
   }
@@ -111,7 +112,7 @@ function isCurrent(href: string) {
 
     padding: 0;
 
-    @container (width >= 20.5rem) {
+    @container (width >= 24rem) {
       gap: var(--spacing-md);
     }
   }
