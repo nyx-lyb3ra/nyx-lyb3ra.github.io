@@ -56,10 +56,9 @@ import Layout from "@/layouts/layout.astro";
     color: var(--color-primary);
 
     font-family: "Shantell Sans", cursive;
-    font-variation-settings:
-      "INFM" 100,
-      "BNCE" 50;
+    font-variation-settings: "INFM" 100;
 
+    animation: floating-text 1s alternate infinite ease-in-out;
     transition: color 200ms var(--curve-fast-out-slow-in);
   }
 
@@ -76,5 +75,15 @@ import Layout from "@/layouts/layout.astro";
   .hero__bio {
     font-size: clamp(1rem, 0.9rem + 0.45cqi, 1.125rem);
     max-width: 65ch;
+  }
+
+  @keyframes floating-text {
+    0% {
+      font-variation-settings: "BNCE" -50;
+    }
+
+    100% {
+      font-variation-settings: "BNCE" 50;
+    }
   }
 </style>
