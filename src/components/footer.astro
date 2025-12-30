@@ -35,12 +35,17 @@ const date = new Date();
     text-align: center;
 
     padding: var(--spacing-md);
+
+    transition: color 200ms var(--curve-fast-out-slow-in);
   }
 
   .footer__link {
     color: inherit;
+
     font-weight: 700;
     text-decoration-style: dotted;
+
+    transition: color 200ms var(--curve-fast-out-slow-in);
 
     &:hover {
       text-decoration-style: solid;
