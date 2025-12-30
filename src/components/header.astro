@@ -118,13 +118,13 @@ function isCurrent(href: string) {
   }
 
   .navbar__link {
-    color: oklch(from currentcolor l c h / 55%);
+    color: color-mix(in srgb, var(--color-on-surface) 55%, transparent);
     text-decoration: none;
     transition: color 200ms var(--curve-fast-out-slow-in);
 
     &:hover,
     &.navbar__link--active {
-      color: currentcolor;
+      color: var(--color-on-surface);
     }
 
     &.navbar__link--active {
