@@ -7,83 +7,130 @@ import Layout from "@/layouts/layout.astro";
 <Layout>
   <Header />
 
-  <main class="hero">
-    <section class="hero__content">
-      <h1 class="hero__title">
-        Hi there, I’m <span class="highlight">Naiara ♡</span>
-      </h1>
+  <main class="bio">
+    <h1 class="bio__header">
+      <span class="bio__greeting">Hi, I’m</span>
+      <span class="bio__name">Naiara~ ♡</span>
+    </h1>
 
-      <h2 class="hero__subtitle">software artisan && hacktivist</h2>
+    <p class="bio__text">
+      I consider myself a Software Artisan: I love building things and giving
+      them my own personal touch, my signature. To me, programming is a form of
+      self-expression—a way to show how I view the world—rather than just a
+      means to solve problems.
+    </p>
 
-      <p class="hero__bio">
-        Operating from Córdoba, Argentina. Crafting <strong
-          >ethical software</strong
-        > that protects user agency and <em>resists exploitation</em>.
-        Technology for <strong>humans</strong>, not profit.
-      </p>
-    </section>
+    <p class="bio__text">
+      I’m 27 years old and based in Argentina. My roots are in <strong
+        >C and C#</strong
+      >, which gave me a strong foundation, though nowadays I’m most fluent in <strong
+        >JavaScript/TypeScript, Vala, and Dart</strong
+      >. I’m also diving deep into the <strong>Nix</strong> and <strong
+        >Rust</strong
+      > ecosystems, always looking to expand my craft.
+    </p>
+
+    <p class="bio__text">
+      Currently, I’m pouring my energy into two main projects:
+    </p>
+
+    <ul class="projects-list">
+      <li class="projects-list__item">
+        <strong>K’uychi:</strong> A color palette tool built with TS and GJS (available
+        on Flathub). It intelligently generates tints and shades based on a color’s
+        luminosity, making it easy to copy hex codes for your designs.
+      </li>
+
+      <li class="projects-list__item">
+        <strong>Fabric:</strong> A meta-framework I’m architecting to manage multiple
+        NixOS systems from a single flake.
+      </li>
+    </ul>
+
+    <p class="bio__text">
+      When I’m not coding, I’m usually catching up on anime or gaming. Right
+      now, I’m watching <em>Umamusume: Pretty Derby</em> and absolutely loving <em
+        >Gachiakuta</em
+      >. On the gaming front, I’m playing through the <em>Tomb Raider (2013)</em
+      > reboot and surviving the kitchen caos of <em>Overcooked! 2</em> with my girlfriend.
+    </p>
+
+    <p class="bio__text">
+      My ultimate goal is simply to leave this world better than I found it. I
+      strive to learn something new every day and improve people’s lives in some
+      way—bit by bit, line by line.
+    </p>
   </main>
 
   <Footer />
 </Layout>
 
 <style>
-  .hero {
+  .bio {
     display: flex;
     flex-direction: column;
 
-    flex: 1;
-
-    justify-content: center;
-
-    padding-inline: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-md);
   }
 
-  .hero__content {
+  .bio__header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-  }
 
-  .hero__title {
-    font-size: clamp(1.75rem, 0.74rem + 4.49cqi, 3rem);
     font-weight: 800;
+
+    margin-block-end: var(--spacing-xs);
   }
 
-  .highlight {
+  .bio__greeting {
+    color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
+    font-size: 1.5rem;
+  }
+
+  .bio__name {
     display: inline-block;
 
     color: var(--color-primary);
 
     font-family: "Shantell Sans", cursive;
+    font-size: 3rem;
     font-variation-settings: "INFM" 100;
 
-    animation: floating-text 1s alternate infinite ease-in-out;
     transition: color 200ms var(--curve-fast-out-slow-in);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: bounce-animation 1s alternate infinite ease-in-out;
+    }
   }
 
-  @keyframes floating-text {
+  @keyframes bounce-animation {
     0% {
-      font-variation-settings: "BNCE" -50;
+      font-variation-settings: "BNCE" -30;
     }
 
     100% {
-      font-variation-settings: "BNCE" 50;
+      font-variation-settings: "BNCE" 30;
     }
   }
 
-  .hero__subtitle {
-    color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
-
-    font-family: "Cascadia Code", monospace;
-    font-weight: 400;
-    font-size: clamp(1.125rem, 0.82rem + 1.35cqi, 1.5rem);
-
-    transition: color 200ms var(--curve-fast-out-slow-in);
+  .bio__text {
+    max-width: 65ch;
   }
 
-  .hero__bio {
-    font-size: clamp(1rem, 0.9rem + 0.45cqi, 1.125rem);
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+
     max-width: 65ch;
+
+    margin: 0;
+    padding-inline-start: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  strong {
+    color: var(--color-primary);
+    font-weight: 600;
   }
 </style>
