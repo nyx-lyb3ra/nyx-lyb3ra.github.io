@@ -1,7 +1,34 @@
 ---
 import Footer from "@/components/footer.astro";
 import Header from "@/components/header.astro";
+import CodebergIcon from "@/icons/codeberg.svg";
+import FediverseIcon from "@/icons/fediverse.svg";
+import GitHubIcon from "@/icons/github.svg";
+import LinkedInIcon from "@/icons/linkedin.svg";
 import Layout from "@/layouts/layout.astro";
+
+const socials = [
+  {
+    href: "https://codeberg.org/nyx_lyb3ra",
+    Icon: CodebergIcon,
+    label: "Codeberg",
+  },
+  {
+    href: "https://tech.lgbt/@nyx_lyb3ra",
+    Icon: FediverseIcon,
+    label: "Fediverse",
+  },
+  {
+    href: "https://github.com/nyx-lyb3ra",
+    Icon: GitHubIcon,
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/naiara-gomez-castro",
+    Icon: LinkedInIcon,
+    label: "LinkedIn",
+  },
+];
 ---
 
 <Layout>
@@ -60,6 +87,24 @@ import Layout from "@/layouts/layout.astro";
       strive to learn something new every day and improve people’s lives in some
       way—bit by bit, line by line.
     </p>
+
+    <ul class="bio__socials">
+      {
+        socials.map(({ href, Icon, label }) => (
+          <li>
+            <a
+              href={href}
+              class="bio__social-link"
+              aria-label={label}
+              target="_blank"
+              rel="me noopener noreferrer"
+            >
+              <Icon />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </main>
 
   <Footer />
@@ -122,6 +167,40 @@ import Layout from "@/layouts/layout.astro";
     max-width: 65ch;
   }
 
+  .bio__socials {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: var(--spacing-sm) 0 0 0;
+    padding: 0;
+    gap: var(--spacing-md);
+
+    list-style: none;
+  }
+
+  .bio__social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-on-surface);
+
+    width: 1.75rem;
+    height: 1.75rem;
+
+    transition:
+      color 200ms var(--curve-fast-out-slow-in),
+      transform 200ms var(--curve-fast-out-slow-in);
+
+    &:hover {
+      color: var(--color-primary);
+      transform: translateY(-3px);
+    }
+  }
+
   .projects-list {
     display: flex;
     flex-direction: column;
@@ -136,5 +215,6 @@ import Layout from "@/layouts/layout.astro";
   strong {
     color: var(--color-primary-text);
     font-weight: 600;
+    transition: color 200ms var(--curve-fast-out-slow-in);
   }
 </style>

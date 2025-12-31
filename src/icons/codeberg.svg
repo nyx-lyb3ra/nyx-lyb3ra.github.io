@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.2333 4.2333">
+  <defs>
+    <linearGradient
+      id="a"
+      x1="42519"
+      x2="42575"
+      y1="-7078.8"
+      y2="-6966.9"
+      gradientTransform="matrix(.024278 0 0 .024278 -1030.1 172.85)"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="currentcolor" stop-opacity="0" offset="0" />
+      <stop stop-color="currentcolor" stop-opacity=".3" offset=".49517" />
+      <stop stop-color="currentcolor" stop-opacity=".3" offset="1" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="m2.1568 0.98818a0.018473 0.013788 0 0 0-0.017917 0.016361l0.81541 3.0564a2.1166 2.1166 0 0 0 0.9561-0.81973l-1.7375-2.2462a0.018473 0.013788 0 0 0-0.016121-0.006781z"
+    fill="url(#a)"
+    stop-color="currentcolor"
+    style="font-variation-settings:normal;paint-order:stroke markers fill"
+  />
+
+  <path
+    d="m2.1167 1.8694e-8c-1.169 0-2.1167 0.94771-2.1167 2.1166 0 0.39765 0.11195 0.78726 0.32318 1.1242l1.7647-2.2815c0.012663-0.01648 0.044596-0.01648 0.057259 0l1.7648 2.2816c0.21123-0.33696 0.32327-0.72661 0.32327-1.1243 0-1.169-0.94762-2.1166-2.1166-2.1166z"
+    fill="currentcolor"
+    stop-color="currentcolor"
+    stroke-width="1.5605"
+    style="paint-order:markers fill stroke"
+  />
+</svg>
