@@ -9,11 +9,11 @@
   --color-primary-text: oklch(0.44 0.2 20);
 
   @media (prefers-color-scheme: dark) {
-    --color-surface: oklch(0.2 0 20);
+    --color-surface: oklch(0.2 0 0);
     --color-on-surface: oklch(1 0 0);
 
-    --color-surface-low: oklch(0.15 0 20);
-    --color-surface-high: oklch(0.25 0 20);
+    --color-surface-low: oklch(0.15 0 0);
+    --color-surface-high: oklch(0.25 0 0);
 
     --color-primary: oklch(0.66 0.2 20);
     --color-primary-text: oklch(0.78 0.2 20);
