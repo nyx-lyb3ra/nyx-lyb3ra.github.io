@@ -126,13 +126,13 @@ function isCurrent(href: string) {
 
     transition: color 200ms var(--curve-fast-out-slow-in);
 
-    &:hover,
-    &.navbar__link--active {
+    &:hover {
       color: var(--color-on-surface);
     }
+  }
 
-    &.navbar__link--active {
-      text-decoration: underline;
-    }
+  .navbar__link--active {
+    color: var(--color-on-surface);
+    text-decoration: underline;
   }
 </style>
