@@ -70,6 +70,10 @@ import Layout from "@/layouts/layout.astro";
     display: flex;
     flex-direction: column;
 
+    font-size: clamp(1rem, 0.9rem + 0.45cqi, 1.125rem);
+
+    flex: 1;
+
     padding: var(--spacing-lg) var(--spacing-md);
     gap: var(--spacing-md);
   }
@@ -94,7 +98,7 @@ import Layout from "@/layouts/layout.astro";
     color: var(--color-primary);
 
     font-family: "Shantell Sans", cursive;
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 2.1rem + 1.8cqi, 3rem);
     font-variation-settings: "INFM" 100;
 
     transition: color 200ms var(--curve-fast-out-slow-in);
