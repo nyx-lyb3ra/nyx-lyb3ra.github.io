@@ -12,23 +12,35 @@ const { titleSuffix } = Astro.props;
 
 const titlePrefix = "nyx";
 const title = titlePrefix + (titleSuffix ? ` :: ${titleSuffix}` : "");
+const description = "Software Artisan && Hacktivist. Building beautiful, ethical software.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html class="page" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="color-scheme" content="light dark" />
     <meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="oklch(0.98 0 0)" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="oklch(0.2 0 0)" media="(prefers-color-scheme: dark)" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_US" />
 
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/fonts/cascadia-code/cascadia-code.css" />
     <link rel="stylesheet" href="/fonts/inter-variable/inter-variable.css" />
     <link rel="stylesheet" href="/fonts/shantell-sans/shantell-sans.css" />
-
-    <title>{title}</title>
-    <meta name="description" content="software artisan && hacktivist" />
   </head>
 
   <body class="page__body">
