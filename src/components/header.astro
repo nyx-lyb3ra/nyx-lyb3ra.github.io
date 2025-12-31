@@ -119,7 +119,11 @@ function isCurrent(href: string) {
 
   .navbar__link {
     color: color-mix(in srgb, var(--color-on-surface) 55%, transparent);
+
     text-decoration: none;
+
+    padding-block: var(--spacing-md);
+
     transition: color 200ms var(--curve-fast-out-slow-in);
 
     &:hover,
