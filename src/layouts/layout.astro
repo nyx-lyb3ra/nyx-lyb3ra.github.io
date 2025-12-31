@@ -36,6 +36,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={canonicalURL.hostname} />
 
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/fonts/cascadia-code/cascadia-code.css" />
