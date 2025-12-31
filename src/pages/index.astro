@@ -14,14 +14,14 @@ const socials = [
     label: "Codeberg",
   },
   {
-    href: "https://tech.lgbt/@nyx_lyb3ra",
-    Icon: FediverseIcon,
-    label: "Fediverse",
-  },
-  {
     href: "https://github.com/nyx-lyb3ra",
     Icon: GitHubIcon,
     label: "GitHub",
+  },
+  {
+    href: "https://tech.lgbt/@nyx_lyb3ra",
+    Icon: FediverseIcon,
+    label: "Fediverse",
   },
   {
     href: "https://linkedin.com/in/naiara-gomez-castro",
@@ -39,6 +39,24 @@ const socials = [
       <span class="bio__greeting">Hi, I’m</span>
       <span class="bio__name">Naiara~ ♡</span>
     </h1>
+
+    <ul class="bio__socials">
+      {
+        socials.map(({ href, Icon, label }) => (
+          <li>
+            <a
+              href={href}
+              class="bio__social-link"
+              aria-label={label}
+              target="_blank"
+              rel="me noopener noreferrer"
+            >
+              <Icon />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
 
     <p class="bio__text">
       I consider myself a Software Artisan: I love building things and giving
@@ -87,24 +105,6 @@ const socials = [
       strive to learn something new every day and improve people’s lives in some
       way—bit by bit, line by line.
     </p>
-
-    <ul class="bio__socials">
-      {
-        socials.map(({ href, Icon, label }) => (
-          <li>
-            <a
-              href={href}
-              class="bio__social-link"
-              aria-label={label}
-              target="_blank"
-              rel="me noopener noreferrer"
-            >
-              <Icon />
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </main>
 
   <Footer />
@@ -126,10 +126,7 @@ const socials = [
   .bio__header {
     display: flex;
     flex-direction: column;
-
     font-weight: 800;
-
-    margin-block-end: var(--spacing-xs);
   }
 
   .bio__greeting {
@@ -171,10 +168,10 @@ const socials = [
     display: flex;
     flex-direction: row;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
-    margin: var(--spacing-sm) 0 0 0;
+    margin-block-end: var(--spacing-md);
     padding: 0;
     gap: var(--spacing-md);
 
