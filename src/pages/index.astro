@@ -62,6 +62,16 @@ import Layout from "@/layouts/layout.astro";
     transition: color 200ms var(--curve-fast-out-slow-in);
   }
 
+  @keyframes floating-text {
+    0% {
+      font-variation-settings: "BNCE" -50;
+    }
+
+    100% {
+      font-variation-settings: "BNCE" 50;
+    }
+  }
+
   .hero__subtitle {
     color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
 
@@ -75,15 +85,5 @@ import Layout from "@/layouts/layout.astro";
   .hero__bio {
     font-size: clamp(1rem, 0.9rem + 0.45cqi, 1.125rem);
     max-width: 65ch;
-  }
-
-  @keyframes floating-text {
-    0% {
-      font-variation-settings: "BNCE" -50;
-    }
-
-    100% {
-      font-variation-settings: "BNCE" 50;
-    }
   }
 </style>
