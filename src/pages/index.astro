@@ -12,22 +12,22 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
 <Layout>
   <Header />
 
-  <main class="bio">
-    <h1 class="bio__header">
-      <span class="bio__greeting">Hi, I’m</span>
-      <span class="bio__name">Naiara~ ♡</span>
+  <main class="home">
+    <h1 class="home__header">
+      <span class="home__greeting">Hi, I’m</span>
+      <span class="home__name">Naiara~ ♡</span>
     </h1>
 
     <SocialLinks />
 
-    <p class="bio__text">
+    <p class="home__text">
       I consider myself a Software Artisan: I love building things and giving
       them my own personal touch, my signature. To me, programming is a form of
       self-expression—a way to show how I view the world—rather than just a
       means to solve problems.
     </p>
 
-    <p class="bio__text">
+    <p class="home__text">
       I’m <AgeDisplay birthDate={MY_BIRTHDAY} /> years old and based in Argentina.
       My roots are in <strong>C and C#</strong>, which gave me a strong
       foundation, though nowadays I’m most fluent in <strong
@@ -37,13 +37,13 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
       > ecosystems, always looking to expand my craft.
     </p>
 
-    <p class="bio__text">
+    <p class="home__text">
       Currently, I’m pouring my energy into two main projects:
     </p>
 
     <ProjectList />
 
-    <p class="bio__text">
+    <p class="home__text">
       When I’m not coding, I’m usually catching up on anime or gaming. Right
       now, I’m watching <em>Umamusume: Pretty Derby</em> and absolutely loving <em
         >Gachiakuta</em
@@ -51,7 +51,7 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
       > reboot and surviving the kitchen caos of <em>Overcooked! 2</em> with my girlfriend.
     </p>
 
-    <p class="bio__text">
+    <p class="home__text">
       My ultimate goal is simply to leave this world better than I found it. I
       strive to learn something new every day and improve people’s lives in some
       way—bit by bit, line by line.
@@ -62,7 +62,7 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
 </Layout>
 
 <style>
-  .bio {
+  .home {
     display: flex;
     flex-direction: column;
 
@@ -74,18 +74,18 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
     gap: var(--spacing-md);
   }
 
-  .bio__header {
+  .home__header {
     display: flex;
     flex-direction: column;
     font-weight: 800;
   }
 
-  .bio__greeting {
+  .home__greeting {
     color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
     font-size: 1.5rem;
   }
 
-  .bio__name {
+  .home__name {
     display: inline-block;
 
     color: var(--color-primary);
@@ -111,7 +111,7 @@ const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
     }
   }
 
-  .bio__text {
+  .home__text {
     max-width: 65ch;
   }
 
