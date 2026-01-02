@@ -1,0 +1,83 @@
+---
+import CodebergIcon from "@/icons/codeberg.svg";
+import FediverseIcon from "@/icons/fediverse.svg";
+import GitHubIcon from "@/icons/github.svg";
+import LinkedInIcon from "@/icons/linkedin.svg";
+
+const socials = [
+  {
+    href: "https://codeberg.org/nyx_lyb3ra",
+    Icon: CodebergIcon,
+    label: "Codeberg",
+  },
+  {
+    href: "https://github.com/nyx-lyb3ra",
+    Icon: GitHubIcon,
+    label: "GitHub",
+  },
+  {
+    href: "https://tech.lgbt/@nyx_lyb3ra",
+    Icon: FediverseIcon,
+    label: "Fediverse",
+  },
+  {
+    href: "https://linkedin.com/in/naiara-gomez-castro",
+    Icon: LinkedInIcon,
+    label: "LinkedIn",
+  },
+];
+---
+
+<ul class="bio__socials">
+  {
+    socials.map(({ href, Icon, label }) => (
+      <li>
+        <a
+          href={href}
+          class="bio__social-link"
+          aria-label={label}
+          target="_blank"
+          rel="me noopener noreferrer"
+        >
+          <Icon />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .bio__socials {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-block-end: var(--spacing-md);
+    padding: 0;
+    gap: var(--spacing-md);
+
+    list-style: none;
+  }
+
+  .bio__social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-on-surface);
+
+    width: 1.75rem;
+    height: 1.75rem;
+
+    transition:
+      color 200ms var(--curve-fast-out-slow-in),
+      transform 200ms var(--curve-fast-out-slow-in);
+
+    &:hover {
+      color: var(--color-primary);
+      transform: translateY(-3px);
+    }
+  }
+</style>

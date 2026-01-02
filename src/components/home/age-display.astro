@@ -1,0 +1,27 @@
+---
+import { calculateAge } from "@/utils/time";
+
+interface Props {
+  birthDate: string;
+}
+
+const { birthDate } = Astro.props;
+const initialAge = calculateAge(birthDate);
+---
+
+<span id="age-display" data-date={birthDate}>{initialAge}</span>
+
+<script>
+  import { calculateAge } from "@/utils/time";
+
+  const ageDisplay = document.getElementById("age-display");
+  const birthDate = ageDisplay?.dataset["date"];
+
+  if (birthDate) {
+    const realAge = calculateAge(birthDate);
+
+    if (ageDisplay.innerText !== realAge.toString()) {
+      ageDisplay.innerText = realAge.toString();
+    }
+  }
+</script>
