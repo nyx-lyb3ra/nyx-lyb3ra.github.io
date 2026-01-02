@@ -1,5 +1,6 @@
 ---
-const date = new Date();
+const today = new Date();
+const initialYear = today.getFullYear();
 ---
 
 <footer class="footer">
@@ -18,7 +19,7 @@ const date = new Date();
   </p>
 
   <p class="footer__copyright">
-    © {date.getFullYear()} Naiara Gomez Castro • 🄯 <a
+    © <span id="copyright-year">{initialYear}</span> Naiara Gomez Castro • 🄯 <a
       href="/LICENSE.txt"
       class="footer__link"
       rel="license">Anti-Capitalist Software License</a
@@ -51,3 +52,12 @@ const date = new Date();
     }
   }
 </style>
+
+<script>
+  const copyrightYear = document.getElementById("copyright-year");
+  const currentYear = new Date().getFullYear().toString();
+
+  if (copyrightYear && copyrightYear.innerText !== currentYear) {
+    copyrightYear.innerText = currentYear;
+  }
+</script>
