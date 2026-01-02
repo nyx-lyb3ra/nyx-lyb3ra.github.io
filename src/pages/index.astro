@@ -6,6 +6,10 @@ import FediverseIcon from "@/icons/fediverse.svg";
 import GitHubIcon from "@/icons/github.svg";
 import LinkedInIcon from "@/icons/linkedin.svg";
 import Layout from "@/layouts/layout.astro";
+import { calculateAge } from "@/utils/time";
+
+const MY_BIRTHDAY = "1998-10-31T00:00:00-03:00";
+const initialAge = calculateAge(MY_BIRTHDAY);
 
 const socials = [
   {
@@ -66,9 +70,9 @@ const socials = [
     </p>
 
     <p class="bio__text">
-      I’m 27 years old and based in Argentina. My roots are in <strong
-        >C and C#</strong
-      >, which gave me a strong foundation, though nowadays I’m most fluent in <strong
+      I’m <span id="age-display" data-date={MY_BIRTHDAY}>{initialAge}</span> years
+      old and based in Argentina. My roots are in <strong>C and C#</strong>,
+      which gave me a strong foundation, though nowadays I’m most fluent in <strong
         >JavaScript/TypeScript, Vala, and Dart</strong
       >. I’m also diving deep into the <strong>Nix</strong> and <strong
         >Rust</strong
@@ -215,3 +219,18 @@ const socials = [
     transition: color 200ms var(--curve-fast-out-slow-in);
   }
 </style>
+
+<script>
+  import { calculateAge } from "@/utils/time";
+
+  const ageDisplay = document.getElementById("age-display");
+  const birthDate = ageDisplay?.dataset["date"];
+
+  if (birthDate) {
+    const realAge = calculateAge(birthDate);
+
+    if (ageDisplay.innerText !== realAge.toString()) {
+      ageDisplay.innerText = realAge.toString();
+    }
+  }
+</script>
