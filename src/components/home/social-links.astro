@@ -4,7 +4,7 @@ import FediverseIcon from "@/icons/fediverse.svg";
 import GitHubIcon from "@/icons/github.svg";
 import LinkedInIcon from "@/icons/linkedin.svg";
 
-const socials = [
+const socialLinks = [
   {
     href: "https://codeberg.org/nyx_lyb3ra",
     Icon: CodebergIcon,
@@ -28,13 +28,13 @@ const socials = [
 ];
 ---
 
-<ul class="bio__socials">
+<ul class="social-links">
   {
-    socials.map(({ href, Icon, label }) => (
+    socialLinks.map(({ href, Icon, label }) => (
       <li>
         <a
           href={href}
-          class="bio__social-link"
+          class="social-links__link"
           aria-label={label}
           target="_blank"
           rel="me noopener noreferrer"
@@ -47,7 +47,7 @@ const socials = [
 </ul>
 
 <style>
-  .bio__socials {
+  .social-links {
     display: flex;
     flex-direction: row;
 
@@ -61,7 +61,7 @@ const socials = [
     list-style: none;
   }
 
-  .bio__social-link {
+  .social-links__link {
     display: flex;
     justify-content: center;
     align-items: center;
