@@ -112,6 +112,21 @@ const socials = [
   </main>
 
   <Footer />
+
+  <script>
+    import { calculateAge } from "@/utils/time";
+
+    const ageDisplay = document.getElementById("age-display");
+    const birthDate = ageDisplay?.dataset["date"];
+
+    if (birthDate) {
+      const realAge = calculateAge(birthDate);
+
+      if (ageDisplay.innerText !== realAge.toString()) {
+        ageDisplay.innerText = realAge.toString();
+      }
+    }
+  </script>
 </Layout>
 
 <style>
@@ -219,18 +234,3 @@ const socials = [
     transition: color 200ms var(--curve-fast-out-slow-in);
   }
 </style>
-
-<script>
-  import { calculateAge } from "@/utils/time";
-
-  const ageDisplay = document.getElementById("age-display");
-  const birthDate = ageDisplay?.dataset["date"];
-
-  if (birthDate) {
-    const realAge = calculateAge(birthDate);
-
-    if (ageDisplay.innerText !== realAge.toString()) {
-      ageDisplay.innerText = realAge.toString();
-    }
-  }
-</script>

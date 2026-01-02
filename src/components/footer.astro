@@ -27,6 +27,15 @@ const initialYear = today.getFullYear();
   </p>
 </footer>
 
+<script>
+  const copyrightYear = document.getElementById("copyright-year");
+  const currentYear = new Date().getFullYear().toString();
+
+  if (copyrightYear && copyrightYear.innerText !== currentYear) {
+    copyrightYear.innerText = currentYear;
+  }
+</script>
+
 <style>
   .footer {
     color: color-mix(in srgb, var(--color-on-surface) 55%, transparent);
@@ -52,12 +61,3 @@ const initialYear = today.getFullYear();
     }
   }
 </style>
-
-<script>
-  const copyrightYear = document.getElementById("copyright-year");
-  const currentYear = new Date().getFullYear().toString();
-
-  if (copyrightYear && copyrightYear.innerText !== currentYear) {
-    copyrightYear.innerText = currentYear;
-  }
-</script>
