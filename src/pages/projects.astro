@@ -6,5 +6,105 @@ import Layout from "@/layouts/layout.astro";
 
 <Layout titleSuffix="projects">
   <Header />
+
+  <main class="projects">
+    <header class="projects__header">
+      <h1 class="projects__title">Projects</h1>
+      <p class="projects__subtitle">Things I’ve built, broken, and rebuilt</p>
+    </header>
+
+    <section class="empty-state">
+      <p class="empty-state__text">
+        Nothing to see here. Either I’m refactoring everything, or the Rust
+        compiler has held me hostage 🦀
+      </p>
+    </section>
+  </main>
+
   <Footer />
 </Layout>
+
+<style>
+  .projects {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: var(--spacing-md);
+  }
+
+  .projects__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+  }
+
+  .projects__title {
+    font-size: clamp(1.75rem, 1.55rem + 0.91cqi, 2rem);
+    font-weight: 800;
+  }
+
+  .projects__subtitle {
+    color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
+    transition: color 200ms var(--curve-fast-out-slow-in);
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+
+    --border-color: color-mix(in srgb, var(--color-on-surface) 55%, transparent);
+    --border-width: 2px;
+    --dash-size: 15px;
+
+    background-image:
+      linear-gradient(90deg, var(--border-color) 50%, transparent 50%),
+      linear-gradient(90deg, var(--border-color) 50%, transparent 50%),
+      linear-gradient(0deg, var(--border-color) 50%, transparent 50%),
+      linear-gradient(0deg, var(--border-color) 50%, transparent 50%);
+
+    background-size:
+      var(--dash-size) var(--border-width),
+      var(--dash-size) var(--border-width),
+      var(--border-width) var(--dash-size),
+      var(--border-width) var(--dash-size);
+
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+
+    border-radius: 8px;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--spacing-md);
+
+    flex: 1;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: marching-ants 800ms linear infinite;
+    }
+  }
+
+  @keyframes marching-ants {
+    0% {
+      background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    }
+
+    100% {
+      background-position:
+        var(--dash-size) 0,
+        calc(100% - var(--dash-size)) 100%,
+        0 calc(100% - var(--dash-size)),
+        100% var(--dash-size);
+    }
+  }
+
+  .empty-state__text {
+    color: color-mix(in srgb, var(--color-on-surface) 89%, transparent);
+    text-align: center;
+    max-width: 65ch;
+    transition: color 200ms var(--curve-fast-out-slow-in);
+  }
+</style>
