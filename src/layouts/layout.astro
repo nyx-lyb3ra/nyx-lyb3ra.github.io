@@ -59,9 +59,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     background-color: var(--color-surface);
     color: var(--color-on-surface);
 
-    font-family: "Inter Variable", sans-serif;
-    font-size: 1rem;
-
     transition:
       background-color 200ms var(--curve-fast-out-slow-in),
       color 200ms var(--curve-fast-out-slow-in);
@@ -71,12 +68,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     display: flex;
     flex-direction: column;
 
+    font-family: "Inter Variable", sans-serif;
+    font-size: clamp(1rem, 0.9rem + 0.45cqi, 1.125rem);
+
     max-width: 80ch;
     min-height: 100svh;
 
     margin: 0 auto;
+    padding: var(--spacing-md);
+    gap: var(--spacing-xl);
 
-    container-name: body;
     container-type: inline-size;
   }
 </style>
